@@ -3,8 +3,7 @@ import 'package:provider/provider.dart';
 
 import 'my_provider.dart';
 
-void main() =>
-    runApp(
+void main() => runApp(
       MultiProvider(
         providers: [
           ChangeNotifierProvider(
@@ -43,67 +42,60 @@ class MyHomePage extends StatelessWidget {
             color: Colors.black,
           ),
           child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-          Column(
-          children: [
-          Text("Provider Listen True : "),
-          Text(
-            '${Provider
-                .of<MyProvider>(context, listen: true)
-                .count}',
-          ),
-          ],
-        ),
-        SizedBox(
-          height: 10,
-        ),
-        Column(
-          children: [
-            Text("Provider Listen False : "),
-            Text(
-              '${Provider
-                  .of<MyProvider>(context, listen: false)
-                  .count}',
-            ),
-          ],
-        ),
-        SizedBox(
-          height: 10,
-        ),
-        Column(
-          children: [
-            Text("Provider Watch : "),
-            Text(
-              '${context
-                  .watch<MyProvider>()
-                  .count}',
-            ),
-          ],
-        ),
-        SizedBox(
-          height: 10,
-        ),
-        Column(
-          children: [
-            Text(" Consumer MyProvider : "),
-            Consumer<MyProvider>(
-              builder: (ctx, value, child) =>
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Column(
+                children: [
+                  Text("Provider Listen True : "),
                   Text(
-                    '${value.count}',
+                    '${Provider.of<MyProvider>(context, listen: true).count}',
                   ),
-            ),
-          ],
-        ),
-        SizedBox(
-          height: 10,
-        ),
-        Selector<MyProvider, int>(
-          selector: (ctx, val) => val.count,
-          builder: (ctx, value, child) =>
-              Text('${value})
                 ],
               ),
+              SizedBox(
+                height: 10,
+              ),
+              Column(
+                children: [
+                  Text("Provider Listen False : "),
+                  Text(
+                    '${Provider.of<MyProvider>(context, listen: false).count}',
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Column(
+                children: [
+                  Text("Provider Watch : "),
+                  Text(
+                    '${context.watch<MyProvider>().count}',
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Column(
+                children: [
+                  Text(" Consumer MyProvider : "),
+                  Consumer<MyProvider>(
+                    builder: (ctx, value, child) => Text(
+                      '${value.count}',
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Selector<MyProvider, int>(
+                selector: (ctx,val) => val.count,
+                builder: (ctx, value, child) => Text('${value}')
+              ),
+            ],
+          ),
         ),
       ),
       floatingActionButton: FloatingActionButton(
