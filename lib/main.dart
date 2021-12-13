@@ -109,7 +109,7 @@ class MyHomePage extends StatelessWidget {
       floatingActionButton: Consumer<MyProvider>(
         builder: (ctx, value, child) => FloatingActionButton(
           tooltip: "context.read<MyProvider>()",
-          onPressed: () => context.read<MyProvider>().increment(),
+          onPressed: () => value.increment(),
           child: const Icon(Icons.add),
         ),
       ),
