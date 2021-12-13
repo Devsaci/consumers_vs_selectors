@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -33,7 +35,7 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Consumers VS Selectors"),
+        title: Text("Consumers VS Selectors"),
       ),
       body: Center(
         child: DefaultTextStyle(
@@ -98,8 +100,8 @@ class MyHomePage extends StatelessWidget {
                 height: 10,
               ),
               Text(" Context Selector: "),
-              Text(" ${context.select<MyProvider, int>((value) => value.count)}"),
-
+              Text(
+                  " ${context.select<MyProvider, int>((value) => value.count)}"),
             ],
           ),
         ),
