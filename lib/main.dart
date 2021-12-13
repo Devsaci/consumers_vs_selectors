@@ -106,10 +106,12 @@ class MyHomePage extends StatelessWidget {
           ),
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        tooltip: "context.read<MyProvider>()",
-        onPressed: () => context.read<MyProvider>().increment(),
-        child: const Icon(Icons.add),
+      floatingActionButton: Consumer(
+        builder: (ctx, value, child) => FloatingActionButton(
+          tooltip: "context.read<MyProvider>()",
+          onPressed: () => context.read<MyProvider>().increment(),
+          child: const Icon(Icons.add),
+        ),
       ),
     );
   }
