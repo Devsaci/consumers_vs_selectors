@@ -94,6 +94,12 @@ class MyHomePage extends StatelessWidget {
               Selector<MyProvider, int>(
                   selector: (ctx, val) => val.count,
                   builder: (ctx, value, child) => Text('${value}')),
+              SizedBox(
+                height: 10,
+              ),
+              Text(" Context Selector: "),
+              Text(" ${context.select((value) => null)}"),
+
             ],
           ),
         ),
