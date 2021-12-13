@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -44,22 +45,42 @@ class MyHomePage extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Text(
-                ' Provider Listen True : ${Provider.of<MyProvider>(context, listen: true).count}',
+              Column(
+                children: [
+                  Text("Provider Listen True : "),
+                  Text(
+                    '${Provider.of<MyProvider>(context, listen: true).count}',
+                  ),
+                ],
               ),
               SizedBox(height: 10,),
-              Text(
-                ' Provider Listen False : ${Provider.of<MyProvider>(context, listen: false).count}',
+              Column(
+                children: [
+                  Text("Provider Listen False : "),
+                  Text(
+                    '${Provider.of<MyProvider>(context, listen: false).count}',
+                  ),
+                ],
               ),
               SizedBox(height: 10,),
-              Text(
-                ' Provider Watch : ${context.watch<MyProvider>().count}',
+              Column(
+                children: [
+                  Text("Provider Watch : "),
+                  Text(
+                    '${context.watch<MyProvider>().count}',
+                  ),
+                ],
               ),
               SizedBox(height: 10,),
-              Consumer<MyProvider>(
-                builder: (ctx, value, child) => Text(
-                  ' Consumer MyProvider : ${value.count}',
-                ),
+              Column(
+                children: [
+                  Text(" Consumer MyProvider : "),
+                  Consumer<MyProvider>(
+                    builder: (ctx, value, child) => Text(
+                      '${value.count}',
+                    ),
+                  ),
+                ],
               ),
               SizedBox(height: 10,),
             ],
@@ -67,6 +88,7 @@ class MyHomePage extends StatelessWidget {
         ),
       ),
       floatingActionButton: FloatingActionButton(
+        tooltip: "context.read<MyProvider>()" ,
         onPressed: () => context.read<MyProvider>().increment(),
         child: const Icon(Icons.add),
       ),
