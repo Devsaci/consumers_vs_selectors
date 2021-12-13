@@ -92,7 +92,7 @@ class MyHomePage extends StatelessWidget {
               ),
               Selector<MyProvider, int>(
                 builder: builder, // error
-                selector: selector, // error
+                selector: (ctx,val) => val.count,
               )
             ],
           ),
