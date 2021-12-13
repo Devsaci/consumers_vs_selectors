@@ -91,9 +91,8 @@ class MyHomePage extends StatelessWidget {
                 height: 10,
               ),
               Selector<MyProvider, int>(
-                builder: builder, // error
-                selector: (ctx,val) => val.count,
-              )
+                  selector: (ctx, val) => val.count,
+                  builder: (ctx, value, child) => Text('${value}')),
             ],
           ),
         ),
