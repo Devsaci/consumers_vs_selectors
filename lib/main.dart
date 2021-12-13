@@ -48,7 +48,7 @@ class MyHomePage extends StatelessWidget {
               ' Provider Listen True : ${Provider.of<MyProvider>(context, listen: true).count}',
             ),
             Text(
-              ' Provider Listen False : ${Provider.of<MyProvider>(context, listen: true).count}',
+              ' Provider Listen False : ${Provider.of<MyProvider>(context, listen: false).count}',
             ),
             Text(
               ' Provider Watch : ${context.watch<MyProvider>().count}',
