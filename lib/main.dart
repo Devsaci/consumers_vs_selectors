@@ -98,7 +98,7 @@ class MyHomePage extends StatelessWidget {
                 height: 10,
               ),
               Text(" Context Selector: "),
-              Text(" ${context.select<MyProvider, int>((value) => null)}"),
+              Text(" ${context.select<MyProvider, int>((value) => value.count)}"),
 
             ],
           ),
