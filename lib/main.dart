@@ -35,30 +35,35 @@ class MyHomePage extends StatelessWidget {
       appBar: AppBar(
         title: const Text("Consumers VS Selectors"),
       ),
-      body: DefaultTextStyle(
-        style: TextStyle(
-          fontSize: 30,
-          color: Colors.black,
-        ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Text(
-              ' Provider Listen True : ${Provider.of<MyProvider>(context, listen: true).count}',
-            ),
-            Text(
-              ' Provider Listen False : ${Provider.of<MyProvider>(context, listen: false).count}',
-            ),
-            Text(
-              ' Provider Watch : ${context.watch<MyProvider>().count}',
-            ),
-            Consumer<MyProvider>(
-              builder: (ctx, value, child) => Text(
-                ' Consumer MyProvider : ${value.count}',
+      body: Center(
+        child: DefaultTextStyle(
+          style: TextStyle(
+            fontSize: 20,
+            color: Colors.black,
+          ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Text(
+                ' Provider Listen True : ${Provider.of<MyProvider>(context, listen: true).count}',
               ),
-            )
-          ],
+              SizedBox(height: 10,),
+              Text(
+                ' Provider Listen False : ${Provider.of<MyProvider>(context, listen: false).count}',
+              ),
+              SizedBox(height: 10,),
+              Text(
+                ' Provider Watch : ${context.watch<MyProvider>().count}',
+              ),
+              SizedBox(height: 10,),
+              Consumer<MyProvider>(
+                builder: (ctx, value, child) => Text(
+                  ' Consumer MyProvider : ${value.count}',
+                ),
+              ),
+              SizedBox(height: 10,),
+            ],
+          ),
         ),
       ),
       floatingActionButton: FloatingActionButton(
