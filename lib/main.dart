@@ -90,6 +90,7 @@ class MyHomePage extends StatelessWidget {
               SizedBox(
                 height: 10,
               ),
+              Text(" Selector<MyProvider, int> : "),
               Selector<MyProvider, int>(
                   selector: (ctx, val) => val.count,
                   builder: (ctx, value, child) => Text('${value}')),
