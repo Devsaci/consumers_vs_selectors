@@ -106,7 +106,7 @@ class MyHomePage extends StatelessWidget {
           ),
         ),
       ),
-      floatingActionButton: Consumer(
+      floatingActionButton: Consumer<MyProvider>(
         builder: (ctx, value, child) => FloatingActionButton(
           tooltip: "context.read<MyProvider>()",
           onPressed: () => context.read<MyProvider>().increment(),
