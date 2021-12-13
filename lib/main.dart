@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -53,7 +52,9 @@ class MyHomePage extends StatelessWidget {
                   ),
                 ],
               ),
-              SizedBox(height: 10,),
+              SizedBox(
+                height: 10,
+              ),
               Column(
                 children: [
                   Text("Provider Listen False : "),
@@ -62,7 +63,9 @@ class MyHomePage extends StatelessWidget {
                   ),
                 ],
               ),
-              SizedBox(height: 10,),
+              SizedBox(
+                height: 10,
+              ),
               Column(
                 children: [
                   Text("Provider Watch : "),
@@ -71,7 +74,9 @@ class MyHomePage extends StatelessWidget {
                   ),
                 ],
               ),
-              SizedBox(height: 10,),
+              SizedBox(
+                height: 10,
+              ),
               Column(
                 children: [
                   Text(" Consumer MyProvider : "),
@@ -82,13 +87,19 @@ class MyHomePage extends StatelessWidget {
                   ),
                 ],
               ),
-              SizedBox(height: 10,),
+              SizedBox(
+                height: 10,
+              ),
+              Selector<MyProvider, int>(
+                builder: builder, // error
+                selector: selector, // error
+              )
             ],
           ),
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        tooltip: "context.read<MyProvider>()" ,
+        tooltip: "context.read<MyProvider>()",
         onPressed: () => context.read<MyProvider>().increment(),
         child: const Icon(Icons.add),
       ),
